@@ -1,0 +1,8 @@
+{
+  "com.sap::SAGBOOKDAYS": {
+    "target": {
+      "object": "SAGBOOKDAYS",
+      "schema": "SFLIGHT"
+    }
+  }
+}

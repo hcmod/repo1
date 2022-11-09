@@ -1,0 +1,41 @@
+{
+  "ServiceName_1": {
+    "object_owner": {
+      "object_privileges": [
+        {
+          "name": "SAGBOOKDAYS",
+          "privileges_with_grant_option": [
+            "SELECT"
+          ],
+          "schema": "SFLIGHT"
+        },
+        {
+            "name": "SAGENCYDATA",
+            "privileges_with_grant_option": [
+              "SELECT"
+            ],
+            "schema": "SFLIGHT"
+          }
+      ]
+    },
+    "application_user": {
+      "object_privileges": [
+        {
+          "name": "SAGBOOKDAYS",
+          "privileges": [
+            "SELECT"
+          ],
+          "schema": "SFLIGHT"
+        },
+        {
+            "name": "SAGENCYDATA",
+            "privileges": [
+              "SELECT"
+            ],
+            "schema": "SFLIGHT"
+          }
+      ]
+    }
+
+  }
+}

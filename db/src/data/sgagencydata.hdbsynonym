@@ -1,0 +1,8 @@
+{
+  "Synonym_0": {
+    "target": {
+      "object": "SAGENCYDATA",
+      "schema": "SFLIGHT"
+    }
+  }
+}

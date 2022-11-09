@@ -1,0 +1,26 @@
+{
+  "com.sap::SAGENCYDATA": {
+    "target": {
+      "object": "SAGENCYDATA",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::STRAVELAG": {
+    "target": {
+      "object": "STRAVELAG",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::SAGBOOKDAYS": {
+    "target": {
+      "object": "SAGBOOKDAYS",
+      "schema": "SFLIGHT"
+    }
+  },
+  "SAGBOOKDAYS": {
+    "target": {
+      "object": "SAGBOOKDAYS",
+      "schema": "SFLIGHT"
+    }
+  }
+}

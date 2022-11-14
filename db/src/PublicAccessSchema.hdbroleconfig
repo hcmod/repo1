@@ -1,0 +1,7 @@
+{
+  "PublicAccessSchema": {
+    "BROKER_USER": {
+      "schema": "PRJ1_HDI_DB_1"
+    }
+  }
+}

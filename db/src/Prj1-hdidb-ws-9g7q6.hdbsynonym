@@ -4,5 +4,11 @@
       "object": "SAGBOOKDAYS",
       "schema": "SFLIGHT"
     }
+  },
+  "SYN_TEMPERATURE_V2": {
+    "target": {
+      "object": "Z_TEMPERATURE_V2",
+      "revalidate": false
+    }
   }
 }

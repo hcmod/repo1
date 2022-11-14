@@ -3,39 +3,33 @@
     "object_owner": {
       "object_privileges": [
         {
-          "name": "SAGBOOKDAYS",
+          "name": "SFLIGHT",
           "privileges_with_grant_option": [
             "SELECT"
           ],
           "schema": "SFLIGHT"
-        },
-        {
-            "name": "SAGENCYDATA",
-            "privileges_with_grant_option": [
-              "SELECT"
-            ],
-            "schema": "SFLIGHT"
-          }
+        }
+       
+        
       ]
     },
     "application_user": {
       "object_privileges": [
         {
-          "name": "SAGBOOKDAYS",
+          "name": "SFLIGHT",
           "privileges": [
             "SELECT"
           ],
           "schema": "SFLIGHT"
         },
         {
-            "name": "SAGENCYDATA",
-            "privileges": [
-              "SELECT"
-            ],
-            "schema": "SFLIGHT"
-          }
+          "name": "SYN_TEMPERATURE_V2",
+          "privileges": [
+            "SELECT"
+          ],
+          "schema" : "PRJ1_HDI_DB_1"
+        }
       ]
     }
-
   }
 }

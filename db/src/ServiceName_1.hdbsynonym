@@ -1,3 +1,32 @@
 {
-  "com.sap::STRAVELAG": {}
+  "com.sap::STRAVELAG": {
+    "target": {
+      "object": "STRAVELAG",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::SCARR": {
+    "target": {
+      "object": "SCARR",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::SFLIGHT": {
+    "target": {
+      "object": "SFLIGHT",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::SAGENCYDATA": {
+    "target": {
+      "object": "SAGENCYDATA",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::SPFLI": {
+    "target": {
+      "object": "SPFLI",
+      "schema": "SFLIGHT"
+    }
+  }
 }

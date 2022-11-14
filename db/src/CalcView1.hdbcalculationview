@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CalcView1" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="CacView1.hdbcalculationview"/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" id="CalcView1" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CalcView1.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
+<executionHints name="gtrhdhzr" value=""/>
 <dataSources>
   <DataSource id="Synonym_0">
     <resourceUri>Synonym_0</resourceUri>
@@ -14,7 +15,15 @@
     <resourceUri>com.sap::SAGBOOKDAYS</resourceUri>
   </DataSource>
 </dataSources>
-<snapshotProcedures/>
+<snapshotProcedures>
+  <query id="Query_1" generatedSnapshotView="I_CalcView1_Query_1" createSnapshotAfterDeployment="true" doNotCleanUpBeforeDeployment="false" useDefinerMode="false" queryString="SELECT &quot;AGENCYNUM&quot; , &quot;NAME&quot; , &quot;ORDERDAY&quot; , SUM(&quot;NUMBOOKINGS&quot;) AS &quot;NUMBOOKINGS&quot; , SUM(&quot;DAYCOUNT&quot;) AS &quot;DAYCOUNT&quot; , SUM(&quot;RES_1&quot;) AS &quot;RES_1&quot; , &quot;CC_1&quot;  
+FROM  &quot;PRJ1_HDI_DB_1&quot;.&quot;CalcView1&quot; 
+GROUP BY &quot;AGENCYNUM&quot; , &quot;NAME&quot; , &quot;ORDERDAY&quot; , &quot;CC_1&quot; ">
+    <queryString>SELECT &quot;AGENCYNUM&quot; , &quot;NAME&quot; , &quot;ORDERDAY&quot; , SUM(&quot;NUMBOOKINGS&quot;) AS &quot;NUMBOOKINGS&quot; , SUM(&quot;DAYCOUNT&quot;) AS &quot;DAYCOUNT&quot; , SUM(&quot;RES_1&quot;) AS &quot;RES_1&quot; , &quot;CC_1&quot;  
+FROM  &quot;PRJ1_HDI_DB_1&quot;.&quot;CalcView1&quot; 
+GROUP BY &quot;AGENCYNUM&quot; , &quot;NAME&quot; , &quot;ORDERDAY&quot; , &quot;CC_1&quot; </queryString>
+  </query>
+</snapshotProcedures>
 <calculationViews>
   <calculationView xsi:type="Calculation:RankView" id="Rank_2">
     <viewAttributes>
@@ -56,21 +65,13 @@
       <viewAttribute id="NAME"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-  
     <input node="Synonym_0">
-  
       <mapping xsi:type="Calculation:AttributeMapping" target="AGENCYNUM" source="AGENCYNUM"/>
-  
       <mapping xsi:type="Calculation:AttributeMapping" target="NUMBOOKINGS" source="NUMBOOKINGS"/>
-  
     </input>
-  
     <input node="com.sap::STRAVELAG">
-  
       <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
-  
       <mapping xsi:type="Calculation:AttributeMapping" target="AGENCYNUM" source="AGENCYNUM"/>
-  
     </input>
     <joinAttribute name="AGENCYNUM"/>
   </calculationView>
@@ -111,19 +112,36 @@
       <keyMapping columnObjectName="Rank_2" columnName="ORDERDAY"/>
     </attribute>
   </attributes>
-  <calculatedAttributes/>
+  <calculatedAttributes>
+    <calculatedAttribute id="CC_1" order="7" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Calc1"/>
+      <keyCalculation datatype="NVARCHAR" expressionLanguage="SQL" length="13">
+        <formula>&quot;AGENCYNUM&quot;&lt;&gt;'51'</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
   <baseMeasures>
     <measure id="NUMBOOKINGS" order="4" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="NUMBOOKINGS"/>
       <measureMapping columnObjectName="Rank_2" columnName="NUMBOOKINGS"/>
     </measure>
-    <measure id="DAYCOUNT" order="5" aggregationType="sum" measureType="simple">
+    <measure id="DAYCOUNT" order="5" aggregationType="sum" measureType="simple" replaceNull="true">
       <descriptions defaultDescription="DAYCOUNT"/>
       <measureMapping columnObjectName="Rank_2" columnName="DAYCOUNT"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
-  <restrictedMeasures/>
+  <restrictedMeasures>
+    <measure id="RES_1" order="6" aggregationType="sum" datatype="BIGINT" length="19" scale="0" baseMeasure="DAYCOUNT">
+      <descriptions defaultDescription=""/>
+      <restriction logicalOperator="AND">
+        <filter xsi:type="Privilege:AttributeFilter" attributeName="AGENCYNUM">
+          <valueFilter xsi:type="AccessControl:RangeValueFilter" operator="BT" including="true" value="00000061" lowValue="00000055" highValue="00000093"/>
+        </filter>
+        <attributeName>AGENCYNUM</attributeName>
+      </restriction>
+    </measure>
+  </restrictedMeasures>
   <localDimensions/>
 </logicalModel>
 <layout>

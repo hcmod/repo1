@@ -11,15 +11,29 @@
       "schema": "SFLIGHT"
     }
   },
-  "com.sap::SAGBOOKDAYS": {
+
+
+  "SAGBOOKDAYS": {
     "target": {
       "object": "SAGBOOKDAYS",
       "schema": "SFLIGHT"
     }
   },
-  "SAGBOOKDAYS": {
+  "com.sap::SAIRPORT": {
     "target": {
-      "object": "SAGBOOKDAYS",
+      "object": "SAIRPORT",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::STOPAGENCY": {
+    "target": {
+      "object": "STOPAGENCY",
+      "schema": "SFLIGHT"
+    }
+  },
+  "com.sap::SPFLI": {
+    "target": {
+      "object": "SPFLI",
       "schema": "SFLIGHT"
     }
   }

@@ -28,6 +28,13 @@
             "SELECT"
           ],
           "schema" : "PRJ1_HDI_DB_1"
+        },
+        {
+          "name": "SYN_EU_SALES",
+          "privileges": [
+            "SELECT"
+          ],
+          "schema" : "PRJ1_HDI_DB_1"
         }
       ]
     }

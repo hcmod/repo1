@@ -10,5 +10,11 @@
       "object": "Z_TEMPERATURE_V2",
       "revalidate": false
     }
+  },
+  "SYN_EU_SALES": {
+    "target": {
+      "object": "EU_SALES",
+      "schema": "PRJ1_HDI_DB_1"
+    }
   }
 }

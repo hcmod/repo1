@@ -30,7 +30,7 @@
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="FOOD" order="3" aggregationType="sum" measureType="simple">
+    <measure id="FOOD" order="3" aggregationType="sum" measureType="simple" hidden="true">
       <descriptions defaultDescription="FOOD"/>
       <measureMapping columnObjectName="Projection_1" columnName="FOOD"/>
     </measure>
@@ -50,7 +50,7 @@
         <attributeName>COUNTRY</attributeName>
       </restriction>
     </measure>
-    <measure id="GERMANY" order="5" aggregationType="sum" datatype="DOUBLE" length="15" scale="null" baseMeasure="FOOD">
+    <measure id="GERMANY" order="5" aggregationType="sum" datatype="DOUBLE" length="15" scale="null" baseMeasure="FOOD" hidden="false">
       <descriptions defaultDescription="GERMANY"/>
       <restriction logicalOperator="AND">
         <filter xsi:type="Privilege:AttributeFilter" attributeName="COUNTRY">
@@ -59,7 +59,7 @@
         <attributeName>COUNTRY</attributeName>
       </restriction>
     </measure>
-    <measure id="SPAIN" order="6" aggregationType="sum" datatype="DOUBLE" length="15" scale="null" baseMeasure="FOOD" hidden="true">
+    <measure id="SPAIN" order="6" aggregationType="sum" datatype="DOUBLE" length="15" scale="null" baseMeasure="FOOD" hidden="false">
       <descriptions defaultDescription="SPAIN"/>
       <restriction logicalOperator="AND">
         <filter xsi:type="Privilege:AttributeFilter" attributeName="COUNTRY">

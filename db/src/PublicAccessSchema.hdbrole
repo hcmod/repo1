@@ -1,23 +1,12 @@
 {
   "role": {
     "name": "PublicAccessSchema",
-    "schema_privileges": [
+    "object_privileges": [
       {
-        "reference": "BROKER_USER",
+        "name": "CV_EU_SALES",
+        "type": "VIEW",
         "privileges": [
-          "SELECT",
-          "EXECUTE"
-        ]
-      }
-    ],
-    "system_privileges": [
-      "CATALOG READ"
-    ],
-    "schema_roles": [
-      {
-        "schema_reference": "BROKER_USER",
-        "names": [
-          "PRJ1_HDI_DB_1::access_role"
+          "SELECT"
         ]
       }
     ]

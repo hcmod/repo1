@@ -81,7 +81,6 @@
     <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="100" y="262"/>
       <rectangleSize height="30" width="160"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_SFLIGHT_SPFLI" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_SFLIGHT_SPFLI"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_SFLIGHT">
+    <resourceUri>CV_SFLIGHT</resourceUri>
+  </DataSource>
+  <DataSource id="CV_SPFLI">
+    <resourceUri>CV_SPFLI</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_SFLIGHT">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="FLDATE"/>
+      <viewAttribute id="PRICE"/>
+      <viewAttribute id="CURRENCY"/>
+      <viewAttribute id="PLANETYPE"/>
+      <viewAttribute id="SEATSMAX"/>
+      <viewAttribute id="SEATSOCC"/>
+      <viewAttribute id="PAYMENTSUM"/>
+      <viewAttribute id="SEATSMAX_B"/>
+      <viewAttribute id="SEATSOCC_B"/>
+      <viewAttribute id="SEATSMAX_F"/>
+      <viewAttribute id="SEATSOCC_F"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_SFLIGHT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggr_SFLIGHT">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="FLDATE"/>
+      <viewAttribute id="PRICE" aggregationType="sum"/>
+      <viewAttribute id="CURRENCY"/>
+      <viewAttribute id="PLANETYPE"/>
+      <viewAttribute id="PAYMENTSUM" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="P_SFLIGHT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_SFLIGHT_SPFLI" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="FLDATE"/>
+      <viewAttribute id="PRICE" aggregationType="sum"/>
+      <viewAttribute id="CURRENCY"/>
+      <viewAttribute id="PLANETYPE"/>
+      <viewAttribute id="PAYMENTSUM" aggregationType="sum"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Aggr_SFLIGHT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+    </input>
+    <input node="P_SPFLI">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+    </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="CARRID"/>
+    <joinAttribute name="CONNID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="P_SPFLI">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="CITYFROM"/>
+      <viewAttribute id="CITYTO"/>
+      <viewAttribute id="DISTANCE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_SPFLI"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="J_SFLIGHT_SPFLI">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="MANDT"/>
+    </attribute>
+    <attribute id="CARRID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="CARRID"/>
+    </attribute>
+    <attribute id="CONNID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONNID"/>
+      <keyMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="CONNID"/>
+    </attribute>
+    <attribute id="FLDATE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLDATE"/>
+      <keyMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="FLDATE"/>
+    </attribute>
+    <attribute id="PLANETYPE" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANETYPE"/>
+      <keyMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="PLANETYPE"/>
+    </attribute>
+    <attribute id="CURRENCY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="CURRENCY"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="PAYMENTSUM" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PAYMENTSUM"/>
+      <measureMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="PAYMENTSUM"/>
+    </measure>
+    <measure id="PRICE" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PRICE"/>
+      <measureMapping columnObjectName="J_SFLIGHT_SPFLI" columnName="PRICE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="213.23951013324876" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="P_SFLIGHT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91.99999999999997" y="461.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggr_SFLIGHT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91.99999999999997" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_SFLIGHT_SPFLI" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="213.23951013324876" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Aggr_SFLIGHT" modelObjectNameSpace="J_SFLIGHT_SPFLI" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="161.98486328125"/>
+    </shape>
+    <shape modelObjectName="P_SPFLI" modelObjectNameSpace="J_SFLIGHT_SPFLI" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="143.4384765625"/>
+    </shape>
+    <shape expanded="true" modelObjectName="P_SPFLI" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="301.99999999999994" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

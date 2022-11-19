@@ -28,5 +28,11 @@
       "object": "SPFLI",
       "schema": "SFLIGHT"
     }
+  },
+  "com.sap::SFLIGHT_TABLE": {
+    "target": {
+      "object": "SFLIGHT",
+      "schema": "SFLIGHT"
+    }
   }
 }

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_SFLIGHT" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_SFLIGHT"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="com.sap::SFLIGHT_TABLE">
+    <resourceUri>com.sap::SFLIGHT_TABLE</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="FLDATE"/>
+      <viewAttribute id="PRICE"/>
+      <viewAttribute id="CURRENCY"/>
+      <viewAttribute id="PLANETYPE"/>
+      <viewAttribute id="SEATSMAX"/>
+      <viewAttribute id="SEATSOCC"/>
+      <viewAttribute id="PAYMENTSUM"/>
+      <viewAttribute id="SEATSMAX_B"/>
+      <viewAttribute id="SEATSOCC_B"/>
+      <viewAttribute id="SEATSMAX_F"/>
+      <viewAttribute id="SEATSOCC_F"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="com.sap::SFLIGHT_TABLE"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="MANDT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MANDT"/>
+    </attribute>
+    <attribute id="CARRID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CARRID"/>
+    </attribute>
+    <attribute id="CONNID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONNID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CONNID"/>
+    </attribute>
+    <attribute id="FLDATE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLDATE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="FLDATE"/>
+    </attribute>
+    <attribute id="CURRENCY" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CURRENCY"/>
+    </attribute>
+    <attribute id="PLANETYPE" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANETYPE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="PLANETYPE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="PRICE" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PRICE"/>
+      <measureMapping columnObjectName="Projection_1" columnName="PRICE"/>
+    </measure>
+    <measure id="SEATSMAX" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSMAX"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSMAX"/>
+    </measure>
+    <measure id="SEATSOCC" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSOCC"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSOCC"/>
+    </measure>
+    <measure id="PAYMENTSUM" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="PAYMENTSUM"/>
+      <measureMapping columnObjectName="Projection_1" columnName="PAYMENTSUM"/>
+    </measure>
+    <measure id="SEATSMAX_B" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSMAX_B"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSMAX_B"/>
+    </measure>
+    <measure id="SEATSOCC_B" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSOCC_B"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSOCC_B"/>
+    </measure>
+    <measure id="SEATSMAX_F" order="13" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSMAX_F"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSMAX_F"/>
+    </measure>
+    <measure id="SEATSOCC_F" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="SEATSOCC_F"/>
+      <measureMapping columnObjectName="Projection_1" columnName="SEATSOCC_F"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="190"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

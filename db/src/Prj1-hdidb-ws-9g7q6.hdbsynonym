@@ -16,5 +16,11 @@
       "object": "EU_SALES",
       "schema": "PRJ1_HDI_DB_1"
     }
+  },
+  "com.sap::SBOOK": {
+    "target": {
+      "object": "SBOOK",
+      "schema": "SFLIGHT"
+    }
   }
 }

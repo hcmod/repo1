@@ -8,6 +8,13 @@
         "privileges": [
           "SELECT"
         ]
+      },
+      {
+        "name": "Medical_Report_Masked",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
       }
     ]
   }

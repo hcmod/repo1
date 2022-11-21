@@ -1,0 +1,4 @@
+VIEW "Medical_Report_Masked"
+AS   SELECT * FROM "Medical_Report"
+WITH MASK 
+  ("Contact" using '###-##-###');

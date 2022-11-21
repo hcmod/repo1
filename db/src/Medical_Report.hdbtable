@@ -1,0 +1,7 @@
+COLUMN TABLE "Medical_Report" ("Patient ID" SMALLINT,
+"Patient Name" NVARCHAR(31),
+"Age" TINYINT ,
+"Gender" NVARCHAR(6),
+"City" NVARCHAR(9),
+"Contact" NVARCHAR(32),
+"Disease" NVARCHAR(22))

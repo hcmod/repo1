@@ -90,7 +90,7 @@
 
 <logicalModel id="Join_1">
   <attributes>
-    <attribute id="CARRID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CARRID_1" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CARRID"/>
       <keyMapping columnObjectName="Join_1" columnName="CARRID"/>
     </attribute>
@@ -135,7 +135,7 @@
         <attributeName>MANDT</attributeName>
         <attributeName>CARRID</attributeName>
       </associatedAttributeNames>
-      <properties cardinality="CN_1" dynamic="true" joinType="referential" optimizeJoinColumns="true" joinOperator="Equal"/>
+      <properties cardinality="CN_1" joinType="referential" optimizeJoinColumns="true" joinOperator="Equal"/>
       <associatedAttributeFeatures/>
     </logicalJoin>
   </sharedDimensions>

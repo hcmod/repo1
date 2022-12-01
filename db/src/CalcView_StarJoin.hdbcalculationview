@@ -33,7 +33,7 @@
     <calculatedViewAttributes/>
     <input node="com.sap::SFLIGHT"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2" ignoreMultipleOutputsForFilter="false">
     <viewAttributes>
       <viewAttribute id="MANDT"/>
       <viewAttribute id="CARRID"/>
@@ -55,216 +55,90 @@
     <calculatedViewAttributes/>
     <input node="com.sap::SPFLI"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" dynamic="true" joinType="inner">
     <viewAttributes>
       <viewAttribute id="MANDT"/>
       <viewAttribute id="CARRID"/>
       <viewAttribute id="CONNID"/>
       <viewAttribute id="FLDATE"/>
       <viewAttribute id="PRICE" aggregationType="sum"/>
-      <viewAttribute id="CURRENCY"/>
       <viewAttribute id="PLANETYPE"/>
-      <viewAttribute id="SEATSMAX" aggregationType="sum"/>
-      <viewAttribute id="SEATSOCC" aggregationType="sum"/>
       <viewAttribute id="PAYMENTSUM" aggregationType="sum"/>
-      <viewAttribute id="SEATSMAX_B" aggregationType="sum"/>
-      <viewAttribute id="SEATSOCC_B" aggregationType="sum"/>
-      <viewAttribute id="SEATSMAX_F" aggregationType="sum"/>
-      <viewAttribute id="SEATSOCC_F" aggregationType="sum"/>
-      <viewAttribute id="COUNTRYFR"/>
-      <viewAttribute id="CITYFROM"/>
-      <viewAttribute id="AIRPFROM"/>
-      <viewAttribute id="COUNTRYTO"/>
-      <viewAttribute id="CITYTO"/>
-      <viewAttribute id="AIRPTO"/>
-      <viewAttribute id="FLTIME" aggregationType="sum"/>
-      <viewAttribute id="DEPTIME"/>
-      <viewAttribute id="ARRTIME"/>
       <viewAttribute id="DISTANCE" aggregationType="sum"/>
-      <viewAttribute id="DISTID"/>
-      <viewAttribute id="FLTYPE"/>
-      <viewAttribute id="PERIOD" aggregationType="sum"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="Projection_1" emptyUnionBehavior="NO_ROW">
-      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+    <input node="Projection_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="COUNTRYFR" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CITYFROM" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="AIRPFROM" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="COUNTRYTO" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CITYTO" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="AIRPTO" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="FLTIME" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DEPTIME" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="ARRTIME" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DISTANCE" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DISTID" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="FLTYPE" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PERIOD" null="true" value=""/>
-    </input>
-    <input node="Projection_2" emptyUnionBehavior="NO_ROW">
       <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="FLDATE" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PRICE" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CURRENCY" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PLANETYPE" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSMAX" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSOCC" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PAYMENTSUM" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSMAX_B" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSOCC_B" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSMAX_F" null="true" value=""/>
-      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSOCC_F" null="true" value=""/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRYFR" source="COUNTRYFR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CITYFROM" source="CITYFROM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AIRPFROM" source="AIRPFROM"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRYTO" source="COUNTRYTO"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="CITYTO" source="CITYTO"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="AIRPTO" source="AIRPTO"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FLTIME" source="FLTIME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="DEPTIME" source="DEPTIME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ARRTIME" source="ARRTIME"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE" source="DISTANCE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="DISTID" source="DISTID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="FLTYPE" source="FLTYPE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="PERIOD" source="PERIOD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
     </input>
+    <input node="Projection_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DISTANCE" source="DISTANCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+    </input>
+    <joinAttribute name="MANDT"/>
+    <joinAttribute name="CARRID"/>
+    <joinAttribute name="CONNID"/>
   </calculationView>
 </calculationViews>
 
-<logicalModel id="Union_1">
+<logicalModel id="Join_1">
   <attributes>
-    <attribute id="MANDT" hidden="true" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="MANDT"/>
-      <keyMapping columnObjectName="Union_1" columnName="MANDT"/>
-    </attribute>
-    <attribute id="CARRID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CARRID" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CARRID"/>
-      <keyMapping columnObjectName="Union_1" columnName="CARRID"/>
+      <keyMapping columnObjectName="Join_1" columnName="CARRID"/>
+    </attribute>
+    <attribute id="PLANETYPE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PLANETYPE"/>
+      <keyMapping columnObjectName="Join_1" columnName="PLANETYPE"/>
     </attribute>
     <attribute id="CONNID" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="CONNID"/>
-      <keyMapping columnObjectName="Union_1" columnName="CONNID"/>
+      <keyMapping columnObjectName="Join_1" columnName="CONNID"/>
     </attribute>
     <attribute id="FLDATE" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="FLDATE"/>
-      <keyMapping columnObjectName="Union_1" columnName="FLDATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="FLDATE"/>
     </attribute>
-    <attribute id="CURRENCY" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CURRENCY"/>
-      <keyMapping columnObjectName="Union_1" columnName="CURRENCY"/>
+    <attribute id="MANDT$local">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Join_1" columnName="MANDT"/>
     </attribute>
-    <attribute id="PLANETYPE" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="PLANETYPE"/>
-      <keyMapping columnObjectName="Union_1" columnName="PLANETYPE"/>
-    </attribute>
-    <attribute id="COUNTRYFR" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="COUNTRYFR"/>
-      <keyMapping columnObjectName="Union_1" columnName="COUNTRYFR"/>
-    </attribute>
-    <attribute id="CITYFROM" order="8" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CITYFROM"/>
-      <keyMapping columnObjectName="Union_1" columnName="CITYFROM"/>
-    </attribute>
-    <attribute id="AIRPFROM" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="AIRPFROM"/>
-      <keyMapping columnObjectName="Union_1" columnName="AIRPFROM"/>
-    </attribute>
-    <attribute id="COUNTRYTO" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="COUNTRYTO"/>
-      <keyMapping columnObjectName="Union_1" columnName="COUNTRYTO"/>
-    </attribute>
-    <attribute id="CITYTO" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="CITYTO"/>
-      <keyMapping columnObjectName="Union_1" columnName="CITYTO"/>
-    </attribute>
-    <attribute id="DISTID" order="12" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DISTID"/>
-      <keyMapping columnObjectName="Union_1" columnName="DISTID"/>
-    </attribute>
-    <attribute id="FLTYPE" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="FLTYPE"/>
-      <keyMapping columnObjectName="Union_1" columnName="FLTYPE"/>
-    </attribute>
-    <attribute id="AIRPTO" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="AIRPTO"/>
-      <keyMapping columnObjectName="Union_1" columnName="AIRPTO"/>
-    </attribute>
-    <attribute id="DEPTIME" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="DEPTIME"/>
-      <keyMapping columnObjectName="Union_1" columnName="DEPTIME"/>
-    </attribute>
-    <attribute id="ARRTIME" order="16" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ARRTIME"/>
-      <keyMapping columnObjectName="Union_1" columnName="ARRTIME"/>
+    <attribute id="CARRID$local">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="Join_1" columnName="CARRID"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="SEATSOCC_B" order="17" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="SEATSOCC_B"/>
-      <measureMapping columnObjectName="Union_1" columnName="SEATSOCC_B"/>
-    </measure>
-    <measure id="SEATSMAX_F" order="18" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="SEATSMAX_F"/>
-      <measureMapping columnObjectName="Union_1" columnName="SEATSMAX_F"/>
-    </measure>
-    <measure id="SEATSMAX" order="19" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="SEATSMAX"/>
-      <measureMapping columnObjectName="Union_1" columnName="SEATSMAX"/>
-    </measure>
-    <measure id="PRICE" order="20" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="PRICE"/>
-      <measureMapping columnObjectName="Union_1" columnName="PRICE"/>
-    </measure>
-    <measure id="SEATSOCC_F" order="21" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="SEATSOCC_F"/>
-      <measureMapping columnObjectName="Union_1" columnName="SEATSOCC_F"/>
-    </measure>
-    <measure id="FLTIME" order="22" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="FLTIME"/>
-      <measureMapping columnObjectName="Union_1" columnName="FLTIME"/>
-    </measure>
-    <measure id="SEATSOCC" order="23" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="SEATSOCC"/>
-      <measureMapping columnObjectName="Union_1" columnName="SEATSOCC"/>
-    </measure>
-    <measure id="PAYMENTSUM" order="24" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="PAYMENTSUM"/>
-      <measureMapping columnObjectName="Union_1" columnName="PAYMENTSUM"/>
-    </measure>
-    <measure id="SEATSMAX_B" order="25" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="SEATSMAX_B"/>
-      <measureMapping columnObjectName="Union_1" columnName="SEATSMAX_B"/>
-    </measure>
-    <measure id="DISTANCE" order="26" aggregationType="sum" measureType="simple">
+    <measure id="DISTANCE" order="5" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="DISTANCE"/>
-      <measureMapping columnObjectName="Union_1" columnName="DISTANCE"/>
-    </measure>
-    <measure id="PERIOD" order="27" aggregationType="sum" measureType="simple">
-      <descriptions defaultDescription="PERIOD"/>
-      <measureMapping columnObjectName="Union_1" columnName="PERIOD"/>
+      <measureMapping columnObjectName="Join_1" columnName="DISTANCE"/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>
   <restrictedMeasures/>
   <localDimensions/>
-  <sharedDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="V_SCARR">
+      <attributes>
+        <attributeRef>MANDT$local</attributeRef>
+        <attributeRef>CARRID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>MANDT</attributeName>
+        <attributeName>CARRID</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" dynamic="true" joinType="referential" optimizeJoinColumns="true" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
 </logicalModel>
 <layout>
   <shapes>
@@ -283,13 +157,25 @@
       <upperLeftCorner x="302" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="152" y="227"/>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="107" y="211"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="Union_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="250"/>
+      <rectangleSize width="161"/>
+    </shape>
+    <shape modelObjectName="Projection_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="155"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="101" y="33"/>
+      <rectangleSize width="161"/>
+    </shape>
+    <shape modelObjectName="V_SCARR" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="401" y="30"/>
+      <rectangleSize width="149"/>
     </shape>
   </shapes>
 </layout>
